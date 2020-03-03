@@ -1,12 +1,25 @@
 import React from "react"
+import { makeStyles } from '@material-ui/core/styles'
 import LazyHero from "react-lazy-hero"
-import { Typography, Paper, Grid } from "@material-ui/core"
+import { Paper, Grid } from "@material-ui/core"
+import Typography from '@material-ui/core/Typography';
 import LinkedInIcon from "@material-ui/icons/LinkedIn"
 import GitHubIcon from "@material-ui/icons/GitHub"
 
-import "../pages/index.css"
+import './index.css'
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    
+  },
+  paper: {
+
+  },
+}));
 
 const HomePage = () => {
+  const classes = useStyles();
+  
   return (
     <div className="global">
 
@@ -18,22 +31,25 @@ const HomePage = () => {
           color="#000000"
           parallaxOffset="100"
           id="lazyhero"
-          opacity="0.9"
+          opacity="0.75"
         >
-          <h3>HEY THERE. MY NAME IS RYAN HARRIS.</h3>
-          <br></br>
-          <h1 id="pt1">I AM A FULL STACK DEVELOPER.</h1>
-          <Typography id="paragraph" component="subtitle1">
+          <h3 className="title">
+            HEY THERE. MY NAME IS RYAN HARRIS.
+          </h3>
+          <div>
+          <h1 id="pt1">I AM A <div id="pt2">FULL STACK</div> DEVELOPER.</h1>
+          </div>
+          <Typography id="paragraph" component="subtitle1" className="title">
             Artistically-trained web developer with innovative and creative
             approaches to problem solving.
           </Typography>
           <br></br>
-          <Typography id="paragraph" component="subtitle1">
+          <Typography id="paragraph" component="subtitle1" className="title">
             Passionate about UI/UX with a forward-thinking consideration for the
             end user.
           </Typography>
           <br></br>
-          <Typography id="paragraph" component="subtitle1">
+          <Typography id="paragraph" component="subtitle1" className="title">
             Experienced in direct sales, relationship-building, listening, and
             self-awareness.
           </Typography>
@@ -63,21 +79,13 @@ const HomePage = () => {
               ABOUT ME
           </Typography>
           {/* Page Content */}
-          <Grid container wrap="nowrap" spacing={3} style={{paddingRight: "25%"}}>
-              <Typography variant="h4" style={{margin: "25px", textAlign: "justify"}}>OBJECTIVE</Typography>
-              <Typography variant="body1" style={{margin: "25px", textAlign: "justify"}}>I am a Front-End Web Developer leveraging a background in Fine Arts to build a unique and refreshing user experience. While earning a certificate in Full Stack Development from the University of Texas-Austin, I developed skills in HTML, CSS, JavaScript, and responsive web design. Being a conceptual artist with experience in sales and marketing, I have a history of communication and relationship-building, paired with a creative and agile approach to challenges. With each project, my aim is to best engage my audience for an impactful and dynamic user-experience. I am excited to apply these skills as part of a fast-paced, quality-driven team in order to build better experiences for our users!</Typography>
-          {/* Page Title */}
-          <Grid item container justify="center" id="titleCell">
-          <img src="../images/portrait.jpg" alt="portrait of Ryan Harris"></img>
-          </Grid>
-
-          {/* Cards */}
-          <Grid item container spacing={2}>
-                <Grid item xs={2}>  
-                efcdmns
-                </Grid>
-          </Grid>
-          </Grid>
+          <div className={classes.grid}>
+            <Grid container spacing={3}>
+              <Grid item xs={12} lg={6}>
+                <img src="../images/ryan.jpg" alt="portrait of Ryan Harris"></img>
+              </Grid>
+            </Grid>
+          </div>
         </Paper>
         </div>
       </div>
